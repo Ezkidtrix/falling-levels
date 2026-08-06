@@ -9,7 +9,7 @@ struct Settings {
   bool enabled = true;
 
   float fallSpeed = 0.5;
-  float fallOffset = 50.0;
+  float fallOffset = 100.0;
 };
 static Settings settings;
 

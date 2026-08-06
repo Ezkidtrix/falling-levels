@@ -31,7 +31,7 @@
 			"type": "float",
 			"name": "Fall Offset",
 			"description": "Changes how far away objects should start falling down.",
-			"default": 50.0,
+			"default": 100.0,
 			"min": 0.0,
 			"max": 500.0,
 			"enable-if": "enabled"
