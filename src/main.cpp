@@ -55,5 +55,4 @@ $on_mod(Loaded) {
   listenForSettingChanges<float>("fall-offset", [](float value) {
     settings.fallOffset = value;
   });
-
 }
