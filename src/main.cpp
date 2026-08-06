@@ -34,6 +34,8 @@ class $modify(GJBaseGameLayer) {
       float distance = std::abs(std::min(0.0f, playerPos.x - objPos.x + settings.fallOffset));
 
       float newY = objPos.y + (distance * settings.fallSpeed);
+      if (objPos.y == newY) continue;
+      
       obj->setPositionY(newY);
     }
   }
