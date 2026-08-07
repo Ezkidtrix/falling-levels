@@ -16,7 +16,9 @@ static Settings settings;
 class $modify(GJBaseGameLayer) {
   void update(float dt) {
     GJBaseGameLayer::update(dt);
+
     if (!settings.enabled) return;
+    if (LevelEditorLayer::get() != nullptr) return;
 
     CCArray* objects = this->m_objects;
     if (!objects) return;

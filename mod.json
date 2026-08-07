@@ -8,13 +8,13 @@
 	},
 	"id": "ezkidtrix.falling-levels",
 	"name": "Falling Levels",
-	"version": "v1.0.1",
+	"version": "v1.0.2",
 	"developer": "Ezkidtrix",
 	"description": "",
 	"dependencies": {
 		"geode.node-ids": ">=v1.23.3"
 	},
-	"tags": ["customization", "gameplay", "utility"],
+	"tags": ["customization", "gameplay", "cheat"],
 	"settings": {
 		"enabled": {
 			"type": "bool",
