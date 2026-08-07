@@ -18,7 +18,7 @@ class $modify(GJBaseGameLayer) {
     GJBaseGameLayer::update(dt);
 
     if (!settings.enabled) return;
-    if (LevelEditorLayer::get() != nullptr) return;
+    if (GJBaseGameLayer::m_isEditor) return;
 
     CCArray* objects = this->m_objects;
     if (!objects) return;
