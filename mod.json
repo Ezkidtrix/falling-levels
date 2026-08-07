@@ -10,7 +10,7 @@
 	"name": "Falling Levels",
 	"version": "v1.0.3",
 	"developer": "Ezkidtrix",
-	"description": "",
+	"description": "A geode mod that makes levels fall from sky",
 	"dependencies": {
 		"geode.node-ids": ">=v1.23.3"
 	},
