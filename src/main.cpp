@@ -16,22 +16,11 @@ static Settings settings;
 class $modify(GJBaseGameLayer) {
   void update(float dt) {
     GJBaseGameLayer::update(dt);
+    if (!settings.enabled || m_isEditor || m_objects || m_player1) return;
 
-    if (!settings.enabled) return;
-    if (GJBaseGameLayer::m_isEditor) return;
+    CCPoint playerPos = m_player1->getPosition();
 
-    CCArray* objects = this->m_objects;
-    if (!objects) return;
-
-    PlayerObject* player = this->m_player1;
-    if (!player) return;
-
-    CCPoint playerPos = player->getPosition();
-
-    for (int i = 0; i < objects->count(); i++) {
-      GameObject* obj = static_cast<GameObject*>(objects->objectAtIndex(i));
-      if (!obj) continue;
-
+    for (auto obj : CCArrayExt<GameObject*>(m_objects)) {
       CCPoint objPos = obj->getPosition();
       float distance = std::abs(std::min(0.0f, playerPos.x - objPos.x + settings.fallOffset));
 
