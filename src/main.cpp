@@ -16,7 +16,7 @@ static Settings settings;
 class $modify(GJBaseGameLayer) {
   void update(float dt) {
     GJBaseGameLayer::update(dt);
-    if (!settings.enabled || m_isEditor || m_objects || m_player1) return;
+    if (!settings.enabled || m_isEditor || !m_objects || !m_player1) return;
 
     CCPoint playerPos = m_player1->getPosition();
 
