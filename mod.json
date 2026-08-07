@@ -15,6 +15,9 @@
 		"geode.node-ids": ">=v1.23.3"
 	},
 	"tags": ["customization", "gameplay", "cheat"],
+	"links": {
+		"source": "https://github.com/Ezkidtrix/falling-levels"
+	},
 	"settings": {
 		"enabled": {
 			"type": "bool",
