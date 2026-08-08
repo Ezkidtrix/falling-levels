@@ -7,6 +7,7 @@ using namespace geode::prelude;
 
 struct Settings {
   bool enabled = true;
+  bool invert = false;
 
   float fallSpeed = 0.5;
   float fallOffset = 100.0;
@@ -22,11 +23,13 @@ class $modify(GJBaseGameLayer) {
 
     for (auto obj : CCArrayExt<GameObject*>(m_objects)) {
       CCPoint objPos = obj->getPosition();
+
       float distance = std::abs(std::min(0.0f, playerPos.x - objPos.x + settings.fallOffset));
 
-      float newY = objPos.y + (distance * settings.fallSpeed);
+      float multiplier = settings.invert ? -1 : 1;
+      float newY = objPos.y + (distance * settings.fallSpeed) * multiplier;
+
       if (objPos.y == newY) continue;
-      
       obj->setPositionY(newY);
     }
   }
@@ -34,12 +37,16 @@ class $modify(GJBaseGameLayer) {
 
 $on_mod(Loaded) {
   settings.enabled = Mod::get()->getSettingValue<bool>("enabled");
+  settings.invert = Mod::get()->getSettingValue<bool>("invert");
 
   settings.fallSpeed = Mod::get()->getSettingValue<float>("fall-speed");
   settings.fallOffset = Mod::get()->getSettingValue<float>("fall-offset");
 
   listenForSettingChanges<bool>("enabled", [](bool value) {
     settings.enabled = value;
+  });
+  listenForSettingChanges<bool>("invert", [](bool value) {
+    settings.invert = value;
   });
 
   listenForSettingChanges<float>("fall-speed", [](float value) {
